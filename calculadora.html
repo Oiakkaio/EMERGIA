@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Emissão de Carbono</title>
+    <link rel="stylesheet" href="calculadora.css">
+</head>
+
+
+<button class="voltar " onclick="location.href='index.html'">
+    <img src="imagens/93634.png" alt="Voltar" style="width: 20px; height: 20px;">
+
+</button>
+</header>
+
+
+<body>
+
+    <div class="container">
+        <article class="calculator">
+            <title>Calculadora de Emergia de Combustíveis</title>
+            <h1>Calculadora de Emergia de Combustíveis</h1>
+
+
+            <p>Descubra a emergia total gasta na fabricação de combustíveis.</p>
+            <label for="tipo_combustivel">Tipo de Combustível:</label>
+            <select id="tipo_combustivel" class="input-field">
+                <option value="gasolina">Gasolina</option>
+                <option value="diesel">Diesel</option>
+                <option value="etanol">Etanol</option>
+                <option value="gas_natural">Gás Natural</option>
+            </select>
+
+            <label for="quantidade">Quantidade Produzida (litros):</label>
+            <input type="number" id="quantidade" class="input-field" step="0.1" required>
+
+            <label for="emergia_unitaria">Emergia Unitária (sej/litro):</label>
+            <input type="number" id="emergia_unitaria" class="input-field" step="0.1" required>
+
+
+            <button onclick="calcularEmergia()" class="calculate-btn">Calcular Emergia</button>
+            <div id="resultado" class="result"></div>
+        </article>
+    </div>
+
+
+
+
+
+
+
+
+    <div class="image"> <img src="imagens/rb_4519.png" alt=""></div>
+
+
+
+
+
+
+
+
+
+    <script>
+        function calcularEmergia() {
+            const tipoCombustivel = document.getElementById("tipo_combustivel").value;
+            const quantidade = parseFloat(document.getElementById("quantidade").value);
+            const emergiaUnitario = parseFloat(document.getElementById("emergia_unitaria").value);
+
+            if (isNaN(quantidade) || isNaN(emergiaUnitario)) {
+                alert("Por favor, insira valores válidos.");
+                return;
+            }
+
+            let emergiaTotal = quantidade * emergiaUnitario;
+
+            const resultadoDiv = document.getElementById("resultado");
+            resultadoDiv.innerHTML = `<h2>Resultado:</h2>
+                                      <p>A emergia total para ${quantidade} litros de ${tipoCombustivel} é: ${emergiaTotal.toFixed(2)} sej.</p>`;
+        }
+    </script>
+    </script>
+</body>
+
+</html>
